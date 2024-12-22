@@ -156,28 +156,23 @@ function storeUser(username, password, role) {
   /************************
    *  Flashcards Page
    ************************/
-  function initFlashcardsPage() {
-    const user = getCurrentUser();
-    if (!user) {
-      window.location.href = 'index.html';
-      return;
+  function initIndexPage() {
+    const loginBtn = document.getElementById('login-btn');
+    const signupBtn = document.getElementById('signup-btn');
+  
+    if (loginBtn) {
+      loginBtn.addEventListener('click', handleLogin);
+    } else {
+      console.error("Login button not found.");
     }
-    document.getElementById('logout-btn').addEventListener('click', () => {
-      clearCurrentUser();
-      window.location.href = 'index.html';
-    });
   
-    // Load existing packs to show
-    loadFlashcardPacks();
-  
-    // Create new pack
-    document.getElementById('add-card-btn').addEventListener('click', addCardCreator);
-    document.getElementById('save-pack-btn').addEventListener('click', saveNewPack);
-  
-    // Study logic
-    document.getElementById('flip-btn').addEventListener('click', flipCard);
-    document.getElementById('next-card-btn').addEventListener('click', nextCard);
+    if (signupBtn) {
+      signupBtn.addEventListener('click', handleSignup);
+    } else {
+      console.error("Sign up button not found.");
+    }
   }
+  
   
   // Display all packs in <ul id="packs-ul">
   async function loadFlashcardPacks() {
