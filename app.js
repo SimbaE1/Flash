@@ -162,12 +162,14 @@ function storeUser(username, password, role) {
   
     if (loginBtn) {
       loginBtn.addEventListener('click', handleLogin);
+      alert("Login Button clicked")
     } else {
       console.error("Login button not found.");
     }
   
     if (signupBtn) {
       signupBtn.addEventListener('click', handleSignup);
+      alert("Signup Button clicked")
     } else {
       console.error("Sign up button not found.");
     }
