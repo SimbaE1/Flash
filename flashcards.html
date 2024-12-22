@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flash - Flashcards</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="dashboard.html" class="logo">Flash</a>
+      <ul>
+        <li><a href="flashcards.html">Flashcards</a></li>
+        <li><a href="dashboard.html" id="nav-progress">My Progress</a></li>
+        <li><button id="logout-btn">Logout</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Flashcard Packs</h2>
+    
+    <!-- Section to show available packs -->
+    <section id="pack-list">
+      <h3>Available Packs</h3>
+      <ul id="packs-ul"></ul>
+    </section>
+
+    <!-- Section to study a selected pack -->
+    <section id="study-section" class="hidden">
+      <h3 id="study-pack-name"></h3>
+      <div id="flashcard-display">
+        <div id="card-front"></div>
+        <div id="card-back" class="hidden"></div>
+      </div>
+      <button id="flip-btn">Flip</button>
+      <button id="next-card-btn">Next Card</button>
+    </section>
+
+    <!-- Section to create a custom pack -->
+    <section id="create-pack-section">
+      <h3>Create New Flashcard Pack</h3>
+      <label for="new-pack-name">Pack Name:</label>
+      <input type="text" id="new-pack-name" placeholder="e.g. My Geometry Pack" />
+
+      <div id="cards-creator">
+        <div class="card-creator">
+          <input type="text" class="front-input" placeholder="Front" />
+          <input type="text" class="back-input" placeholder="Back" />
+        </div>
+      </div>
+
+      <button id="add-card-btn">Add Another Card</button>
+      <button id="save-pack-btn">Save Pack</button>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
