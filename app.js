@@ -1,45 +1,38 @@
-// Ensure the DOM is fully loaded before running the script
-document.addEventListener('DOMContentLoaded', () => {
-  // Role selection buttons
-  const studentButton = document.getElementById('select-student');
-  const teacherButton = document.getElementById('select-teacher');
-
-  // Add event listeners for role selection
-  if (studentButton) {
-    studentButton.addEventListener('click', () => {
-      localStorage.setItem('userType', 'student');
-      localStorage.setItem('userName', 'Student');
-      window.location.href = 'dashboard.html';
-    });
+const flashcards = [
+  {
+      question: "What is the capital of France?",
+      answer: "Paris"
+  },
+  {
+      question: "What is 2 + 2?",
+      answer: "4"
+  },
+  {
+      question: "What is the capital of Spain?",
+      answer: "Madrid"
   }
+];
 
-  if (teacherButton) {
-    teacherButton.addEventListener('click', () => {
-      localStorage.setItem('userType', 'teacher');
-      localStorage.setItem('userName', 'Teacher');
-      window.location.href = 'dashboard.html';
-    });
-  }
+let currentIndex = 0;
 
-  // Dashboard logic
-  if (window.location.pathname.includes('dashboard.html')) {
-    const userName = localStorage.getItem('userName');
-    const userType = localStorage.getItem('userType');
+const questionElement = document.querySelector('.question');
+const answerElement = document.querySelector('.answer');
+const nextButton = document.getElementById('next');
 
-    // Redirect to index if user info is missing
-    if (!userName || !userType) {
-      window.location.href = 'index.html';
-    } else {
-      document.getElementById('user-name').textContent = userName;
-    }
-  }
+function showFlashcard(index) {
+  questionElement.textContent = flashcards[index].question;
+  answerElement.textContent = flashcards[index].answer;
+  answerElement.style.display = 'none';
+}
 
-  // Logout functionality
-  const logoutButton = document.getElementById('logout-btn');
-  if (logoutButton) {
-    logoutButton.addEventListener('click', () => {
-      localStorage.clear();
-      window.location.href = 'index.html';
-    });
-  }
+nextButton.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % flashcards.length;
+  showFlashcard(currentIndex);
 });
+
+questionElement.addEventListener('click', () => {
+  answerElement.style.display = 'block';
+});
+
+// Initialize the first flashcard
+showFlashcard(currentIndex);
