@@ -2,58 +2,60 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #f8f8f8;
+  text-align: center;
 }
 
-header, nav {
+header {
   background-color: #3b5998;
-  color: #fff;
+  color: white;
+  padding: 1rem;
+}
+
+h1, h2 {
+  margin: 0;
+}
+
+main {
+  margin: 2rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #3b5998;
+  color: white;
+}
+
+button:hover {
+  background-color: #4c70ba;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3b5998;
+  color: white;
   padding: 1rem;
 }
 
 nav ul {
-  list-style: none;
-  display: inline-block;
+  list-style-type: none;
   margin: 0;
   padding: 0;
+  display: flex;
+  gap: 1rem;
 }
 
 nav ul li {
-  display: inline-block;
-  margin-left: 1rem;
+  display: inline;
 }
 
-nav ul li a, #logout-btn {
-  color: #fff;
+a, button {
+  color: white;
   text-decoration: none;
-  cursor: pointer;
-}
-
-.logo {
-  color: #fff;
-  font-weight: bold;
-  margin-right: 2rem;
-}
-
-main {
-  padding: 1rem;
-}
-
-.hidden {
-  display: none;
-}
-
-#flashcard-display {
-  border: 2px solid #333;
-  width: 300px;
-  height: 200px;
-  margin-bottom: 1rem;
-  position: relative;
-  padding: 1rem;
-  background: #fff;
-}
-
-#card-front, #card-back {
-  font-size: 1.2rem;
-  text-align: center;
-  line-height: 200px;
 }

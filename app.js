@@ -1,43 +1,45 @@
-// Set user type in localStorage
-document.getElementById('select-student')?.addEventListener('click', () => {
-  localStorage.setItem('userType', 'student');
-  localStorage.setItem('userName', 'Student');
-  window.location.href = 'dashboard.html';
-});
+// Ensure the DOM is fully loaded before running the script
+document.addEventListener('DOMContentLoaded', () => {
+  // Role selection buttons
+  const studentButton = document.getElementById('select-student');
+  const teacherButton = document.getElementById('select-teacher');
 
-document.getElementById('select-teacher')?.addEventListener('click', () => {
-  localStorage.setItem('userType', 'teacher');
-  localStorage.setItem('userName', 'Teacher');
-  window.location.href = 'dashboard.html';
-});
-
-// Populate dashboard
-if (window.location.pathname.includes('dashboard.html')) {
-  const userName = localStorage.getItem('userName');
-  const userType = localStorage.getItem('userType');
-  if (!userName || !userType) {
-    window.location.href = 'index.html';
-  } else {
-    document.getElementById('user-name').textContent = userName;
-    // Logic to display progress or other features
+  // Add event listeners for role selection
+  if (studentButton) {
+    studentButton.addEventListener('click', () => {
+      localStorage.setItem('userType', 'student');
+      localStorage.setItem('userName', 'Student');
+      window.location.href = 'dashboard.html';
+    });
   }
-}
 
-// Flashcard functionality
-if (window.location.pathname.includes('flashcards.html')) {
-  const flashcardPacks = JSON.parse(localStorage.getItem('flashcardPacks') || '[]');
+  if (teacherButton) {
+    teacherButton.addEventListener('click', () => {
+      localStorage.setItem('userType', 'teacher');
+      localStorage.setItem('userName', 'Teacher');
+      window.location.href = 'dashboard.html';
+    });
+  }
 
-  // Populate packs list
-  const packsUl = document.getElementById('packs-ul');
-  flashcardPacks.forEach(pack => {
-    const li = document.createElement('li');
-    li.textContent = pack.name;
-    packsUl.appendChild(li);
-  });
-}
+  // Dashboard logic
+  if (window.location.pathname.includes('dashboard.html')) {
+    const userName = localStorage.getItem('userName');
+    const userType = localStorage.getItem('userType');
 
-// Logout functionality
-document.getElementById('logout-btn')?.addEventListener('click', () => {
-  localStorage.clear();
-  window.location.href = 'index.html';
+    // Redirect to index if user info is missing
+    if (!userName || !userType) {
+      window.location.href = 'index.html';
+    } else {
+      document.getElementById('user-name').textContent = userName;
+    }
+  }
+
+  // Logout functionality
+  const logoutButton = document.getElementById('logout-btn');
+  if (logoutButton) {
+    logoutButton.addEventListener('click', () => {
+      localStorage.clear();
+      window.location.href = 'index.html';
+    });
+  }
 });
