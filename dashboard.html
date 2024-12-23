@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Flash - Dashboard</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <header>
     <nav>
       <a href="dashboard.html" class="logo">Flash</a>
@@ -18,26 +17,14 @@
       </ul>
     </nav>
   </header>
-
   <main>
-    <!-- Student dashboard section -->
-    <section id="student-dashboard" class="hidden">
-      <h2>Welcome, <span id="student-name"></span>!</h2>
+    <section id="dashboard-section">
+      <h2>Welcome, <span id="user-name"></span>!</h2>
       <p>Your current progress:</p>
-      <div id="student-progress"></div>
-      <p>Browse or create flashcard packs <a href="flashcards.html">here</a>.</p>
+      <div id="user-progress"></div>
+      <p>Explore flashcards <a href="flashcards.html">here</a>.</p>
     </section>
-
-    <!-- Teacher dashboard section -->
-    <section id="teacher-dashboard" class="hidden">
-      <h2>Welcome, <span id="teacher-name"></span>!</h2>
-      <p>Here are your classes and students’ progress:</p>
-      <div id="teacher-progress"></div>
-      <p>Create or check flashcard packs <a href="flashcards.html">here</a>.</p>
-    </section>
-
   </main>
-
+  <script src="app.js"></script>
 </body>
-<script src="app.js"></script>
 </html>
